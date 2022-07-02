@@ -1,13 +1,13 @@
-import React, { FC, useEffect, useState, MouseEvent } from "react";
+import React, { MouseEvent } from "react";
 import styled from "styled-components";
-import boxProperty from "../fp/boxProperty";
-import remsize from "../fp/remsize";
-import { mediaQueries } from "../fp/mediaQueries";
-import DownloadFile from "../components/downloadFile";
-import displayFlex from "../fp/displayFlex";
-import { useParams } from "react-router";
-import axios from "axios";
-//import FileSaver from "file-saver";
+import boxProperty from "../fp/BoxProperty";
+import remsize from "../fp/Remsize";
+import { mediaQueries } from "../fp/MediaQueries";
+import DownloadFile from "../components/DownloadFile";
+import displayFlex from "../fp/DisplayFlex";
+import { useRouter } from "next/router";
+import { dehydrate, QueryClient, useQuery } from "react-query";
+import fetchData from "../components/fetchData";
 
 const theme = {
   $light: "#eeeeee",
@@ -30,45 +30,23 @@ const Container = styled.div`
   `)};
 `;
 
-const DownloadsArticle: FC = () => {
-  const [activeFile, setActiveFile] = useState<any>({});
-  const { id } = useParams<any>();
-  const onSubmitDownload = (event?: MouseEvent<HTMLElement>) => {
-    event?.preventDefault();
-    let downloadFilename = activeFile.filename;
+const DownloadsArticle = () => {
+  const router = useRouter();
+  const { id } = router.query;
+  const fetchItem = () => fetchData(`/api/music/${id}`);
+  const { data, isLoding, isFetching } = useQuery<any>("item", fetchItem);
 
-    axios({
-      method: "GET",
-      url: `/api/uploadVideos/${id}`,
-      responseType: "blob",
-      params: {
-        file: downloadFilename,
-      },
-    })
-      .then(() => {
-        setActiveFile({ fileDownloading: true });
-      })
-      .then((response: any) => {
-        //FileSaver.saveAs(response.data, downloadFilename);
-        console.log(response);
-      })
-      .then(() => {
-        setActiveFile({ fileDownloading: false });
-        console.log("File Downloading Completed");
-      });
+  console.log(data);
+
+  const handleDownload = (event?: MouseEvent<HTMLElement>) => {
+    event?.preventDefault();
+    //fetchItem('/api/')
   };
-  useEffect(() => {
-    onSubmitDownload();
-    //fetchRequest(`/api/uploadVideos/${id}`).then((response: any) =>
-    //setActiveFile(response.data)
-    //);
-  });
-  console.log(activeFile);
   return (
     <Container id="downloadsArticle">
       <DownloadFile>
-        <a href="pooo" download>
-          {activeFile.filename}
+        <a href="pooo" download onClick={handleDownload}>
+          {data.filename}
         </a>
       </DownloadFile>
     </Container>
@@ -76,3 +54,15 @@ const DownloadsArticle: FC = () => {
 };
 
 export default DownloadsArticle;
+
+export async function getStaticProps() {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery("music", fetchItem);
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
+}
