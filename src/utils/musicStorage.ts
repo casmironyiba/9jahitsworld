@@ -3,7 +3,6 @@ import crypto from "crypto";
 
 const MusicStorage = new GridFsStorage({
   url: <string>process.env.MONGO_URI,
-  //options: <any>process.env.MONGO_OPTIONS,
   file: (req: any, file: any) => {
     return new Promise((resolve, reject) => {
       crypto.randomBytes(16, (err) => {
@@ -14,6 +13,7 @@ const MusicStorage = new GridFsStorage({
         const fileInfo = {
           filename,
           bucketName: "music",
+          chunkSizeBytes: 1024,
         };
         resolve(fileInfo);
       });

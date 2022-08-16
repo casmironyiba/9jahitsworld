@@ -5,6 +5,7 @@ import nc from "next-connect";
 import { NextApiRequest, NextApiResponse } from "next";
 import onError from "../../utils/onError";
 import onNoMatch from "../../utils/onNoMatch";
+import handler from "../../utils/handler";
 
 dbConnect();
 
@@ -13,7 +14,7 @@ gfs = new mongoose.mongo.GridFSBucket(connection.db, {
   bucketName: "music",
 });
 
-const handler = nc<NextApiRequest, NextApiResponse>({ onError, onNoMatch });
+//const handler = nc<NextApiRequest, NextApiResponse>({ onError, onNoMatch });
 
 handler
   .use(uploadMusicMiddleware)

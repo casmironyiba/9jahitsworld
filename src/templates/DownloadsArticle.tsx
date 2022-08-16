@@ -5,9 +5,10 @@ import remsize from "../fp/Remsize";
 import { mediaQueries } from "../fp/MediaQueries";
 import DownloadFile from "../components/DownloadFile";
 import displayFlex from "../fp/DisplayFlex";
-import { useRouter } from "next/router";
 import { dehydrate, QueryClient, useQuery } from "react-query";
 import fetchData from "../components/fetchData";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const theme = {
   $light: "#eeeeee",
@@ -33,22 +34,18 @@ const Container = styled.div`
 const DownloadsArticle = () => {
   const router = useRouter();
   const { id } = router.query;
-  const fetchItem = () => fetchData(`/api/music/${id}`);
+  const fetchItem = () => fetchData(`/api/track/${id}`);
+
   const { data, isLoding, isFetching } = useQuery<any>("item", fetchItem);
-
-  console.log(data);
-
-  const handleDownload = (event?: MouseEvent<HTMLElement>) => {
-    event?.preventDefault();
-    //fetchItem('/api/')
-  };
+  useEffect(() => {
+    fetchData(`/api/track/${id}`).then((doc) => {
+      console.log(doc);
+      return doc;
+    });
+  }, [id]);
   return (
     <Container id="downloadsArticle">
-      <DownloadFile>
-        <a href="pooo" download onClick={handleDownload}>
-          {data.filename}
-        </a>
-      </DownloadFile>
+      <DownloadFile></DownloadFile>
     </Container>
   );
 };
@@ -56,6 +53,9 @@ const DownloadsArticle = () => {
 export default DownloadsArticle;
 
 export async function getStaticProps() {
+  const router = useRouter();
+  const { id } = router.query;
+  const fetchItem = () => fetchData(`/api/music/${id}`);
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery("music", fetchItem);

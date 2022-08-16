@@ -24,8 +24,7 @@ handler
     });
   })
   .post(uploadVideosMiddleware, (req, res) => {
-    res.send(req.file);
-    res.send(req.body);
+    res.json({ videos: req.file });
   });
 
 export default handler;

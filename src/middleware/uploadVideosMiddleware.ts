@@ -4,7 +4,7 @@ import checkFileType from "../utils/checkFileTypes";
 import fileTypes from "../utils/fileTypes";
 
 const uploadVideos = multer({
-  storage: storage("music"),
+  storage: storage("videos"),
   fileFilter: (req, file, done) => {
     const fileType = fileTypes.videos;
     checkFileType(file, fileType, done);

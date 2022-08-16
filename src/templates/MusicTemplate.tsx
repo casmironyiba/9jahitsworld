@@ -12,14 +12,15 @@ import fetchData from "../components/fetchData";
 const Container = styled.div``;
 const Div = styled(MusicCard)``;
 
-const fetchMusic = () => fetchData("/api/music");
+const fetchMusic = () => fetchData(`/api/music`);
+
 const MusicTemplate: FC = () => {
   //const [music, setMusic] = useState<any>("");
   const { data, isLoading, isFetching } = useQuery<any>("music", fetchMusic);
 
-  if (!data) return <div>No data</div>;
-  if (isLoading) return <div>isLoading...</div>;
-  if (isFetching) return <div>isFetching...</div>;
+  if (!data) return <div>No data</div>
+  if (isLoading) return <div>isLoading...</div>
+  if (isFetching) return <div>isFetching...</div>
 
   console.log(data);
   return (
@@ -27,7 +28,7 @@ const MusicTemplate: FC = () => {
       <Header />
       <Main>
         <PageArticle>
-          {data?.map((buffer: any, index: any) => (
+          {data.map((buffer: any, index: any) => (
             <Div key={index}>
               <div id="itemCard">
                 <div id="artistImage">
@@ -35,7 +36,7 @@ const MusicTemplate: FC = () => {
                 </div>
                 <div id="music">
                   <h6>
-                    <Link href={`/downloads/${buffer._id}`}>
+                    <Link href={`downloads/${buffer._id}`} >
                       {buffer.filename}
                     </Link>
                   </h6>
