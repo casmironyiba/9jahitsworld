@@ -37,7 +37,7 @@ const DownloadsArticle = () => {
   const { data, isLoding, isFetching } = useQuery<any>("music", fetchItem);
   return (
     <Container id="downloadsArticle">
-      <DownloadFile>{ data.filename }</DownloadFile>
+      <DownloadFile><a href={`/api/track/${id}`} download>{ data.filename }</a></DownloadFile>
     </Container>
   );
 };
