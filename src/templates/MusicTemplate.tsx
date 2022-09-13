@@ -12,7 +12,7 @@ import fetchData from "../components/fetchData";
 const Container = styled.div``;
 const Div = styled(MusicCard)``;
 
-const fetchMusic = () => fetchData(`/api/music`);
+const fetchMusic = () => fetchData(`/api/music/musicList`);
 
 const MusicTemplate: FC = () => {
   //const [music, setMusic] = useState<any>("");

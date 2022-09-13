@@ -8,17 +8,15 @@ import displayFlex from "../fp/DisplayFlex";
 import { dehydrate, QueryClient, useQuery } from "react-query";
 import fetchData from "../components/fetchData";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import theme from '../components/Themes'
 
-const theme = {
-  $light: "#eeeeee",
-};
+
 const Container = styled.div`
   ${mediaQueries(`mobileS`)(`
-    ${boxProperty(remsize(300), remsize(800))};
+    ${boxProperty(remsize(300), remsize(400))};
     ${displayFlex(`space-between`, "center", `column nowrap`)};
     background:${theme.$light};
-  `)};
+`)};
 
   ${mediaQueries(`mobileM`)(`
     width:400px;
@@ -34,18 +32,12 @@ const Container = styled.div`
 const DownloadsArticle = () => {
   const router = useRouter();
   const { id } = router.query;
-  const fetchItem = () => fetchData(`/api/track/${id}`);
+  const fetchItem = () => fetchData(`/api/music/${id}`);
 
-  const { data, isLoding, isFetching } = useQuery<any>("item", fetchItem);
-  useEffect(() => {
-    fetchData(`/api/track/${id}`).then((doc) => {
-      console.log(doc);
-      return doc;
-    });
-  }, [id]);
+  const { data, isLoding, isFetching } = useQuery<any>("music", fetchItem);
   return (
     <Container id="downloadsArticle">
-      <DownloadFile></DownloadFile>
+      <DownloadFile>{ data.filename }</DownloadFile>
     </Container>
   );
 };

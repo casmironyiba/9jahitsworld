@@ -18,6 +18,7 @@ const H6 = styled.h6`
 
   ${mediaQueries(`laptop`)(`
     font-size:1rem;
+    
   `)};
 `;
 const AboutDeveloper = () => (

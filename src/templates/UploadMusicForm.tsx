@@ -20,7 +20,7 @@ const UploadMusicForm = () => {
   };
 
   const handleSubmit = () => {
-    postRequest(`/api/music`, { music });
+    postRequest(`/api/music/musicList`, { music });
     console.log(`music card added`);
     setTimeout(() => {
       resetMusic();
@@ -32,7 +32,7 @@ const UploadMusicForm = () => {
   }, []);
   return (
     <Form
-      action="/api/music"
+    action="/api/music/musicList"
       method="POST"
       onSubmit={handleSubmit}
       encType="multipart/form-data"
