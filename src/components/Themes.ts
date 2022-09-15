@@ -1,8 +1,9 @@
 const theme = {
-$white:"white",
-$black:"black",
-$light:"",
-$dark:"#333333"
-}
+  $white: "white",
+  $black: "black",
+  $light: "#eeeeee",
+  $dark: "#333333",
+  $yellow: "yellow",
+  $purple: "purple",
+};
 export default theme;
-

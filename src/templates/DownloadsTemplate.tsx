@@ -10,7 +10,7 @@ import PageArticle from "./PageArticle";
 import RecentUpdate from "../components/RecentUpdate";
 
 const Container = styled(Layout)`
-  ${boxProperty("100%", `100%`)};
+  ${boxProperty("100%", `100%`, "auto")};
 `;
 
 const DownloadsTemplate: FC = () => (

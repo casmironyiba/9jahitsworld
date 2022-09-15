@@ -3,33 +3,50 @@ import boxProperty from "../fp/BoxProperty";
 import remsize from "../fp/Remsize";
 import { mediaQueries } from "../fp/MediaQueries";
 import displayFlex from "../fp/DisplayFlex";
-
-const theme = {
-  $purple: "purple",
-};
+import theme from "./Themes";
 
 const Container = styled.div`
   ${mediaQueries("mobileS")(`
-    ${boxProperty(remsize(300), remsize(400), `auto`, remsize(10))};
+    ${boxProperty(remsize(250), remsize(600))};
+    padding:${remsize(20)};
     background: ${theme.$purple};
-    
-    div {
-      padding:10px;
+    box-shadow:1px 1px 3px
+    `)};
 
-      a {
-        ${displayFlex(`center`, "center", `row wrap`)};
-        text-decoration:none;
-      }
+  ${mediaQueries("mobileM")(`
+                              width:${remsize(350)};
 
-    }
-  `)};
 
+                              `)};
+
+  ${mediaQueries(`mobileL`)(`
+                            width:80vw;
+
+
+                            `)};
+
+  ${mediaQueries(`tablet`)(`
+                           width:60vw;
+
+
+
+                                                     `)};
   ${mediaQueries(`laptop`)(`
-    width:${remsize(650)};
+    width:45vw;
   `)};
 `;
 
+const Div = styled.div`
+  ${mediaQueries("mobileS")(`
+    ${boxProperty(`100%`, `100%`, "auto", remsize(""), theme.$yellow)}
+
+                          `)};
+`;
 const RecentUpdate = () => {
-  return <Container id="recentUpdate">hi</Container>;
+  return (
+    <Container id="recentUpdate">
+      <Div>Recent updates</Div>
+    </Container>
+  );
 };
 export default RecentUpdate;
