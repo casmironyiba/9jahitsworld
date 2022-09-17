@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
-import dbConnect, { connection } from "../../utils/dbConnect";
-import uploadImagesMiddleware from "../../middleware/uploadImagesMiddleware";
+import dbConnect, { connection } from "../../../utils/dbConnect";
+import uploadImagesMiddleware from "../../../middleware/uploadImagesMiddleware";
 import nc from "next-connect";
 import { NextApiRequest, NextApiResponse } from "next";
-import onError from "../../utils/onError";
-import onNoMatch from "../../utils/onNoMatch";
+import onError from "../../../utils/onError";
+import onNoMatch from "../../../utils/onNoMatch";
 
 dbConnect();
 

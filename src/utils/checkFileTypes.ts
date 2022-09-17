@@ -1,12 +1,10 @@
-import path from "path";
-
-function checkFileType(file: any, fileTypes: any, done: any) {
-  const extname = fileTypes.test(path.extname(file.originalname));
-  const mimetype = fileTypes.test(file.mimetype);
-  if (mimetype || extname) {
-    return done(null, true);
-  } else {
-    done(`Error: Invalid file format`);
+export default function isFileExist(file: any, res: any) {
+  if (!file || file.length === 0) {
+    return res.status(404).json({
+      err: "No file exists",
+    });
+  }
+  if (file.contentType === "video/mpeg") {
+    res.status(200).json(file);
   }
 }
-export default checkFileType;

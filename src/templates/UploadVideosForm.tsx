@@ -20,7 +20,7 @@ const UploadVideosForm = () => {
   };
 
   const handleSubmit = () => {
-    postRequest("/api/videos", { videos });
+    postRequest("/api/videos/videosList", { videos });
     console.log(`videos card added`);
     setTimeout(() => {
       resetVideos();
@@ -33,7 +33,7 @@ const UploadVideosForm = () => {
   return (
     <Form
       method="POST"
-      action="/api/videos"
+      action="/api/videos/videosList"
       onSubmit={handleSubmit}
       id="uploadVideosForm"
       encType="multipart/form-data"

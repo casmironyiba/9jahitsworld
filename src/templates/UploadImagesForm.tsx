@@ -22,7 +22,7 @@ const UploadImagesForm = () => {
   console.log(images);
 
   const handleSubmit = () => {
-    postRequest("/api/images", { images });
+    postRequest("/api/images/imagesList", { images });
     console.log(`image uploaded`);
     setTimeout(() => {
       resetImages();
@@ -34,7 +34,7 @@ const UploadImagesForm = () => {
   }, []);
   return (
     <Form
-      action="/api/images"
+      action="/api/images/imagesList"
       method="POST"
       onSubmit={handleSubmit}
       encType="multipart/form-data"

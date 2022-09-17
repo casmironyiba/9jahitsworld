@@ -11,7 +11,7 @@ import fetchData from "../components/fetchData";
 const Container = styled.div``;
 const Div = styled(MusicCard)``;
 
-const fetchVideos = () => fetchData("/api/videos");
+const fetchVideos = () => fetchData("/api/videos/videosList");
 
 const VideosTemplate = () => {
   const { data, isLoading, isFetching } = useQuery<any>("videos", fetchVideos);
