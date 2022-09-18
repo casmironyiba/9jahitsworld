@@ -33,7 +33,7 @@ const VideosTemplate = () => {
                 </div>
                 <div id="music">
                   <h6>
-                    <Link href={`/downloads/${buffer._id}`}>
+                    <Link href={`/videos/${buffer._id}`}>
                       {buffer.filename}
                     </Link>
                   </h6>

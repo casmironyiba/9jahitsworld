@@ -15,13 +15,15 @@ handler.get((req, res) => {
   const gfs = Grid(connection.db, mongoose.mongo);
   gfs.collection("images");
 
-  gfs.files.findOne(
-    { _id: new mongoose.Types.ObjectId(req.query.id) },
-    (err: any, file: any) => {
-      console.log(file);
-      isFileExist(file, res);
+  const activeURL = new mongoose.Types.ObjectId(req.query.id);
+
+  //console.log(req.query.id);
+  gfs.files.findOne({ _id: activeURL }, (err: any, file: any) => {
+    isFileExist(file, res);
+    if (file.contentType === "image/mpeg") {
+      res.status(200).json({ track: file });
     }
-  );
+  });
 });
 
 export default handler;

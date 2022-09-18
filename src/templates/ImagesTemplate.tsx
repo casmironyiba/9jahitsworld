@@ -12,7 +12,7 @@ import Link from "next/link";
 const Container = styled.div``;
 const Div = styled(MusicCard)``;
 
-const fetchImages = () => fetchData(`/api/images`);
+const fetchImages = () => fetchData(`/api/images/imagesList`);
 
 const ImagesTemplate: FC = () => {
   const { data, isLoading, isFetching } = useQuery<any[]>(

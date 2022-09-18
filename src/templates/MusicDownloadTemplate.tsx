@@ -4,7 +4,7 @@ import Layout from "../components/Layout";
 import Footer from "./Footer";
 import Header from "./Header";
 import Main from "./Main";
-import VideosDownloadArticle from "./VideosDownloadArticle";
+import MusicDownloadArticle from "./MusicDownloadArticle";
 import boxProperty from "../fp/BoxProperty";
 import PageArticle from "./PageArticle";
 import RecentUpdate from "../components/RecentUpdate";
@@ -13,12 +13,12 @@ const Container = styled(Layout)`
   ${boxProperty("100%", `100%`, "auto")};
 `;
 
-const VideosDownloadTemplate: FC = () => (
+const MusicDownloadsTemplate: FC = () => (
   <Container id="downloadsTemplate">
     <Header />
     <Main>
       <PageArticle>
-        <VideosDownloadArticle />
+        <MusicDownloadArticle />
         <RecentUpdate />
       </PageArticle>
     </Main>
@@ -26,4 +26,4 @@ const VideosDownloadTemplate: FC = () => (
   </Container>
 );
 
-export default VideosDownloadTemplate;
+export default MusicDownloadsTemplate;

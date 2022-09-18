@@ -18,9 +18,9 @@ const MusicTemplate: FC = () => {
   //const [music, setMusic] = useState<any>("");
   const { data, isLoading, isFetching } = useQuery<any>("music", fetchMusic);
 
-  if (!data) return <div>No data</div>
-  if (isLoading) return <div>isLoading...</div>
-  if (isFetching) return <div>isFetching...</div>
+  if (!data) return <div>No data</div>;
+  if (isLoading) return <div>isLoading...</div>;
+  if (isFetching) return <div>isFetching...</div>;
 
   console.log(data);
   return (
@@ -36,9 +36,7 @@ const MusicTemplate: FC = () => {
                 </div>
                 <div id="music">
                   <h6>
-                    <Link href={`downloads/${buffer._id}`} >
-                      {buffer.filename}
-                    </Link>
+                    <Link href={`music/${buffer._id}`}>{buffer.filename}</Link>
                   </h6>
                 </div>
               </div>

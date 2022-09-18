@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import dbConnect, { connection } from "../../../utils/dbConnect";
 import Grid from "gridfs-stream";
 import handler from "../../../utils/handler";
+import isFileExist from "../../../utils/isFileExist";
 
 dbConnect();
 
@@ -18,11 +19,7 @@ handler.get((req, res) => {
 
   //console.log(req.query.id);
   gfs.files.findOne({ _id: activeURL }, (err: any, file: any) => {
-    if (!file || file.length === 0) {
-      return res.status(404).json({
-        err: "No file exists",
-      });
-    }
+    isFileExist(file, res);
 
     if (file.contentType === "audio/mpeg") {
       const readStream = bucket.openDownloadStream(file._id);

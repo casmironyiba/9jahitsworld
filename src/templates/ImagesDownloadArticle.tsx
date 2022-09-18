@@ -45,7 +45,7 @@ ${boxProperty(`100%`, `100%`, "auto", remsize(5), theme.$yellow)}
 
                        `)}
 `;
-const DownloadsArticle = () => {
+const MusicDownloadArticle = () => {
   const router = useRouter();
   const { id } = router.query;
   const fetchItem = () => fetchData(`/api/music/${id}`);
@@ -60,7 +60,7 @@ const DownloadsArticle = () => {
   );
 };
 
-export default DownloadsArticle;
+export default MusicDownloadArticle;
 
 export async function getStaticProps() {
   const router = useRouter();

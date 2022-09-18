@@ -9,19 +9,23 @@ dbConnect();
 handler.get((req, res) => {
   let bucket = new mongoose.mongo.GridFSBucket(connection.db, {
     chunkSizeBytes: 1024,
-    bucketName: "images",
+    bucketName: "videos",
   });
 
   const gfs = Grid(connection.db, mongoose.mongo);
-  gfs.collection("images");
+  gfs.collection("videos");
 
-  gfs.files.findOne(
-    { _id: new mongoose.Types.ObjectId(req.query.id) },
-    (err: any, file: any) => {
-      console.log(file);
-      isFileExist(file, res);
+  const activeURL = new mongoose.Types.ObjectId(req.query.id);
+
+  //console.log(req.query.id);
+  gfs.files.findOne({ _id: activeURL }, (err: any, file: any) => {
+    isFileExist(file, res);
+
+    if (file.contentType === "video/mpeg") {
+      const readStream = bucket.openDownloadStream(file._id);
+      readStream.pipe(res);
     }
-  );
+  });
 });
 
 export default handler;

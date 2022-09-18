@@ -4,7 +4,4 @@ export default function isFileExist(file: any, res: any) {
       err: "No file exists",
     });
   }
-  if (file.contentType === "video/mpeg") {
-    res.status(200).json(file);
-  }
 }
