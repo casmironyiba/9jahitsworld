@@ -1,5 +1,7 @@
 const theme = {
   $white: "white",
+  $palevioletred: "palevioletred",
+  $lightGreen: "lightgreen",
   $green: "green",
   $blue: "blue",
   $red: "red",

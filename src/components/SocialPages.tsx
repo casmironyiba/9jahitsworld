@@ -1,0 +1,64 @@
+import React from "react";
+
+import WhatsApp from "@mui/icons-material/WhatsApp";
+import Facebook from "@mui/icons-material/FacebookRounded";
+import Twitter from "@mui/icons-material/Twitter";
+import Instagram from "@mui/icons-material/Instagram";
+import YouTube from "@mui/icons-material/YouTube";
+import styled from "styled-components";
+import boxProperty from "../fp/BoxProperty";
+import displayFlex from "../fp/DisplayFlex";
+import remsize from "../fp/Remsize";
+import Link from "next/link";
+import theme from "./Themes";
+
+const Container = styled.div`
+  ${boxProperty(remsize(300), remsize(30), ``, remsize(5))};
+  ${displayFlex(`space-around`, "center", `row nowrap`)};
+  color: ${theme.$white};
+  a {
+    ${boxProperty(remsize(100), remsize(30))};
+    ${displayFlex(`space-around`, "center", `row nowrap`)};
+    text-decoration: none;
+  }
+`;
+
+const Div = styled.div`
+  ${boxProperty(remsize(40), remsize(40), "auto", remsize(2), theme.$dark)};
+  ${displayFlex("center", "center")};
+  border-radius: 50%;
+`;
+
+export default function SocialPages() {
+  return (
+    <Container id="contactsMe">
+      <Div>
+        <Link href="#" passHref>
+          <Facebook fontSize="small" />
+        </Link>
+      </Div>
+      <Div>
+        <Link href="#" passHref>
+          <YouTube fontSize="small" />
+        </Link>
+      </Div>
+
+      <Div>
+        <Link href="#" passHref>
+          <Instagram fontSize="small" />
+        </Link>
+      </Div>
+
+      <Div>
+        <Link href="#" passHref>
+          <WhatsApp fontSize="small" />
+        </Link>
+      </Div>
+      <Div>
+        <Link href="#" passHref>
+          <Twitter fontSize="small" />
+        </Link>
+      </Div>
+    </Container>
+  );
+}
