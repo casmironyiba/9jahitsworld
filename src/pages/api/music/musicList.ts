@@ -7,19 +7,19 @@ dbConnect();
 
 let gfs: any;
 gfs = new mongoose.mongo.GridFSBucket(connection.db, {
-bucketName: "music",
+  bucketName: "music",
 });
 //gfs = Grid(connection.db, mongoose.mongo);
 //gfs.collection("music");
 handler
   //.use(uploadMusicMiddleware)
-  .get((req, res) => {
-    gfs.find().toArray((err:any,files:object)=>{
+  .get((req: any, res: any) => {
+    gfs.find().toArray((err: any, files: object) => {
       if (err) res.send(err);
       else return res.status(200).json(files);
     });
   })
-  .post(uploadMusicMiddleware, (req, res) => {
+  .post(uploadMusicMiddleware, (req: any, res: any) => {
     res.send(req.file);
   });
 

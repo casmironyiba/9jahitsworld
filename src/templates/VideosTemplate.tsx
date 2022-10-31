@@ -13,7 +13,8 @@ const Div = styled(MusicCard)``;
 
 const fetchVideos = () => fetchData("/api/videos/videosList");
 
-const VideosTemplate = () => {
+const VideosTemplate = (props: any) => {
+  console.log(props);
   const { data, isLoading, isFetching } = useQuery<any>("videos", fetchVideos);
 
   if (!data) return <div>No data</div>;

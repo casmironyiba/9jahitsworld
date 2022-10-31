@@ -1,6 +1,6 @@
-import React, { NavLink } from "react-router-dom";
+import NavLink from "next/link";
 import styled from "styled-components";
-import UserForm from "./userForm";
+import UserForm from "./UserForm";
 
 const Container = styled(UserForm)``;
 
@@ -12,7 +12,7 @@ const RegisterUserForm: Prop = (props: any) => (
   <Container id="registerUserForm" onSubmit={props.registerHandler}>
     <h4>Register Page</h4>
     <div>{props.children}</div>
-    <NavLink to="/login">Login</NavLink>
+    <NavLink href="/login">Login</NavLink>
   </Container>
 );
 

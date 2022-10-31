@@ -5,12 +5,7 @@ import textProperty from "../fp/TextProperty";
 import remsize from "../fp/Remsize";
 import Link from "next/link";
 import { mediaQueries } from "../fp/MediaQueries";
-
-const theme = {
-  $blue: "blue",
-  $red: "red",
-  $green: "green",
-};
+import theme from "./Themes";
 
 const Container = styled.div`
   ${boxProperty(`100%`, remsize(150))};
@@ -24,6 +19,7 @@ const H4 = styled.h4`
     text-transform: Capitalize;
     letter-spacing: ${remsize(2)};
     font-size: 1rem;
+    border-bottom:1px solid ${theme.$black};
  `)};
 
   ${mediaQueries(`laptop`)(`
@@ -77,10 +73,7 @@ const Li = styled.div`
 
 const LPNavigation = () => (
   <Container id="lpNavigation">
-    <H4>
-      Recent Downloads
-      <hr />
-    </H4>
+    <H4>Recent Downloads</H4>
     <Ul>
       <Li>
         <Link href="/music">download latest music</Link>

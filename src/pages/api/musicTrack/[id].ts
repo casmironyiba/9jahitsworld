@@ -17,13 +17,11 @@ handler.get((req, res) => {
 
   const activeURL = new mongoose.Types.ObjectId(req.query.id);
 
-  //console.log(req.query.id);
   gfs.files.findOne({ _id: activeURL }, (err: any, file: any) => {
     isFileExist(file, res);
-
-    if (file.contentType === "audio/mpeg") {
+    if (file?.contentType === "audio/mpeg") {
       const readStream = bucket.openDownloadStream(file._id);
-      readStream.pipe(res);
+      return readStream.pipe(res);
     }
   });
 });

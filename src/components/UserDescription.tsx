@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import boxProperty from "../fp/boxProperty";
-import { mediaQueries } from "../fp/mediaQueries";
-import remsize from "../fp/remsize";
+import boxProperty from "../fp/BoxProperty";
+import { mediaQueries } from "../fp/MediaQueries";
+import remsize from "../fp/Remsize";
 
 const Container = styled.div`
   ${mediaQueries(`mobileS`)(`

@@ -3,12 +3,7 @@ import { mediaQueries } from "../fp/MediaQueries";
 import remsize from "../fp/Remsize";
 import LPNavigation from "./LpNavigation";
 import OurServices from "./OurServices";
-
-const theme = {
-  $dark: "#333333",
-  $lightgreen: "lightgreen",
-  $light: "#eeeeee",
-};
+import theme from "./Themes";
 
 const Container = styled.ul`
   ${mediaQueries(`mobileS`)(`
@@ -24,7 +19,6 @@ const Container = styled.ul`
 
   ${mediaQueries(`mobileL`)(`
     position:relative;
-    bottom:${remsize(25)};
   `)};
 
   ${mediaQueries(`tablet`)(`

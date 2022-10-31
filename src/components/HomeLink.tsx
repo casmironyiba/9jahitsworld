@@ -25,7 +25,7 @@ const Container = styled.div`
 
 const HomeLink = () => (
   <Container>
-    <Link href="/">
+    <Link href="/" passHref>
       <HomeIcon sx={{ color: theme.$white }} />
     </Link>
   </Container>

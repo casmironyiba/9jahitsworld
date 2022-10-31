@@ -23,7 +23,7 @@ const H6 = styled.h6`
 `;
 const AboutME = () => (
   <H6 id="aboutMe">
-    I'm Mandate,the owner of 9jaHitsWorld.com, i am a Nigerian based blogger,
+    I am Mandate,the owner of 9jaHitsWorld.com, i am a Nigerian based blogger,
     Awka precisely. Here we help upcomming artists to advertise their songs at
     cheaper rate, we also advertise all kinds of business.
   </H6>

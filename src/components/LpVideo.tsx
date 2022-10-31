@@ -11,6 +11,9 @@ const Container = styled.div`
   ${mediaQueries(`mobileS`)(`
     //${boxProperty(`90%`, remsize(300))};
     background:${theme.$light};
+    video {
+     width:300px;
+    }
 
     &>video {
       ${boxProperty(`100%`, `100%`)};
@@ -22,7 +25,11 @@ const Container = styled.div`
     `)};
 
   ${mediaQueries(`laptop`)(`
-    width:${remsize(400)};
+    width:${remsize(600)};
+    video {
+     width:100%;
+     margin-top:50px;
+    }
     `)};
 `;
 

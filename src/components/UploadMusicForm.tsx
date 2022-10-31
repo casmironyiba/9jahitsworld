@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import styled from "styled-components";
-import Form from "./form";
+import Form from "./Form";
 
 const Container = styled(Form)``;
 

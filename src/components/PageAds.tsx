@@ -20,6 +20,6 @@ const Container = styled.div`
     `)};
 `;
 
-const PageAds: FC = () => <Container id="pageAds">Page Ads</Container>;
+const PageAds = () => <Container id="pageAds">Page Ads</Container>;
 
 export default PageAds;

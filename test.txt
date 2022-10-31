@@ -1,4 +1,12 @@
-GET http://localhost:3000/api/music/musicList
+GET http://localhost:3000/api/musicList
+
+GET http://localhost:3000/api/musicTrack/630c63f1101b3af67f7fcc20
+
+GET http://localhost:3000/api/music/630c63f1101b3af67f7fcc20
+
+GET http://localhost:3000/api/videos/videosList
+
+GET http://localhost:3000/api/images/imagesList
 
 GET http://localhost:3000/api/track/track
  

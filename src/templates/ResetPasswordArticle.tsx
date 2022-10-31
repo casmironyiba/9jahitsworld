@@ -72,7 +72,7 @@ const ResetPasswordArticle = ({ match }: any) => {
       {error && <span>{error}</span>}
       {success && (
         <span>
-          {success} <NavLink to="/login"> </NavLink>
+          {success} <NavLink href="/login"> </NavLink>
         </span>
       )}
       <input

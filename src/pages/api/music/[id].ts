@@ -17,9 +17,13 @@ handler.get((req, res) => {
 
   gfs.files.findOne(
     { _id: new mongoose.Types.ObjectId(req.query.id) },
-    (err: any, file: any) => {
-      console.log(file);
-      isFileExist(file, res);
+    (err: any, music: any) => {
+      //console.log(music);
+      isFileExist(music, res);
+
+      //if (music.contentType === "audio/mpeg") {
+      return res.status(200).json(music);
+      //}
     }
   );
 });

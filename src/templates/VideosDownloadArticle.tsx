@@ -6,9 +6,10 @@ import { mediaQueries } from "../fp/MediaQueries";
 import DownloadFile from "../components/DownloadFile";
 import displayFlex from "../fp/DisplayFlex";
 import { dehydrate, QueryClient, useQuery } from "react-query";
-import fetchData from "../components/fetchData";
+import { getFile } from "../components/filesApi";
 import { useRouter } from "next/router";
 import theme from "../components/Themes";
+import router from "react-router-dom";
 
 const Container = styled.div`
   ${mediaQueries(`mobileS`)(`
@@ -45,34 +46,21 @@ ${boxProperty(`100%`, `100%`, "auto", remsize(5), theme.$yellow)}
 
                        `)}
 `;
-const VideosDownloadArticle = () => {
+const VideosDownloadArticle = (props: any) => {
+  //const data = props.data;
   const router = useRouter();
   const { id } = router.query;
-  const fetchItem = () => fetchData(`/api/videos/${id}`);
+  const fetchItem = () => getFile(`api/videos/`, id);
 
-  const { data, isLoding, isFetching } = useQuery<any>("videos", fetchItem);
+  const { data, isLoading, isFetching } = useQuery<any>("videos", fetchItem);
+  console.log(data);
   return (
     <Container id="downloadsArticle">
       <DownloadFile>
-        <a href={`/api/videoTrack/${id}`}> i am working</a>
+        <a href={`/api/videoTrack/${id}`}> {data.filename}</a>
       </DownloadFile>
     </Container>
   );
 };
 
 export default VideosDownloadArticle;
-
-export async function getStaticProps() {
-  const router = useRouter();
-  const { id } = router.query;
-  const fetchItem = () => fetchData(`/api/videos/${id}`);
-  const queryClient = new QueryClient();
-
-  await queryClient.prefetchQuery("videos", fetchItem);
-
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-  };
-}

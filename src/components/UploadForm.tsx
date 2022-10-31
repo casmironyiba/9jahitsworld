@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { mediaQueries } from "../fp/mediaQueries";
-import remsize from "../fp/remsize";
-import boxProperty from "../fp/boxProperty";
-import displayFlex from "../fp/displayFlex";
+import { mediaQueries } from "../fp/MediaQueries";
+import remsize from "../fp/Remsize";
+import boxProperty from "../fp/BoxProperty";
+import displayFlex from "../fp/DisplayFlex";
 
 const theme = {
   $light: "#eeeeee",

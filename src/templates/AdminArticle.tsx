@@ -54,12 +54,16 @@ const H4 = styled.h4`
   margin-left: auto;
 `;
 const AdminArticle = () => {
+  console.log(localStorage.getItem("authToken"));
   const [error, setError] = useState("");
   const [privateData, setPrivateData] = useState("");
   privateData;
   const history = useRouter;
   useEffect(() => {
-    if (!localStorage.getItem("authToken")) {
+    if (
+      !localStorage.getItem("authToken") ||
+      localStorage.getItem("authToken") === undefined
+    ) {
       history.push("/login");
     }
 
@@ -82,7 +86,7 @@ const AdminArticle = () => {
     };
 
     fetchPrivateData();
-  }, []);
+  }, [history]);
 
   const logoutHandler = () => {
     localStorage.removeItem("authToken");

@@ -10,11 +10,7 @@ import LPVideo from "../components/LpVideo";
 import RecentUpdate from "../components/RecentUpdate";
 import displayGrid from "../fp/DisplayGrid";
 import PageAds from "../components/PageAds";
-
-const theme = {
-  $light: "#eeeeee",
-  $white: "white",
-};
+import theme from "../components/Themes";
 
 const Container = styled.div`
   ${mediaQueries(`mobileS`)(`
@@ -46,15 +42,18 @@ const Div = styled.div`
 
   ${mediaQueries(`tablet`)(`
     width:75%;
+    height:100%;
     &>div#homeArticleVideoHints {
     width:90%;
-                           background:${theme.$light};
+    background:${theme.$light};
     height:420px;
     padding:${remsize(10)};
     };
+
     &>div#recentUpdate {
       display:block;
-      ${boxProperty(`90%`, remsize(350), `auto`, remsize(5), theme.$light)};
+      ${boxProperty(`90%`, remsize(400), `auto`, remsize(15), theme.$light)};
+      }
     };
 
     &>div#pageAds {

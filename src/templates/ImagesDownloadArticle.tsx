@@ -50,7 +50,7 @@ const MusicDownloadArticle = () => {
   const { id } = router.query;
   const fetchItem = () => fetchData(`/api/music/${id}`);
 
-  const { data, isLoding, isFetching } = useQuery<any>("music", fetchItem);
+  const { data, isLoading, isFetching } = useQuery<any>("music", fetchItem);
   return (
     <Container id="downloadsArticle">
       <DownloadFile>

@@ -45,34 +45,24 @@ ${boxProperty(`100%`, `100%`, "auto", remsize(5), theme.$yellow)}
 
                        `)}
 `;
-const MusicDownloadArticle = () => {
+export default function MusicDownloadArticle(props: any) {
   const router = useRouter();
   const { id } = router.query;
-  const fetchItem = () => fetchData(`/api/music/${id}`);
+  //const fetchItem = () => fetchData(`/api/music/${id}`);
+  //const { data, isLoading, isFetching } = useQuery<any>("music", fetchItem);
 
-  const { data, isLoding, isFetching } = useQuery<any>("music", fetchItem);
+  //if (!data) return <div>No data</div>;
+  //if (isLoading) return <div>isLoading...</div>;
+  //if (isFetching) return <div>isFetching...</div>;
+  console.log(props);
+  //console.log(data.file);
   return (
     <Container id="downloadsArticle">
       <DownloadFile>
-        <a href={`/api/musicTrack/${id}`}>{data.filename}</a>
+        <a href={`/api/musicTrack/${id}`} download>
+          {props.filename}
+        </a>
       </DownloadFile>
     </Container>
   );
-};
-
-export default MusicDownloadArticle;
-
-export async function getStaticProps() {
-  const router = useRouter();
-  const { id } = router.query;
-  const fetchItem = () => fetchData(`/api/music/${id}`);
-  const queryClient = new QueryClient();
-
-  await queryClient.prefetchQuery("music", fetchItem);
-
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-  };
 }

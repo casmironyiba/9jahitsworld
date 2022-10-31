@@ -30,7 +30,7 @@ const Container = styled.h4`
 
 const LPHeading = () => (
   <Container id="lpHeading">
-    Welcome to 9jaHitsworld Nigeria's #1 Music & Entertainment website.{" "}
+    Welcome to 9jaHitsworld Nigerias #1 Music & Entertainment website.{" "}
   </Container>
 );
 export default LPHeading;

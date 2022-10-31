@@ -17,9 +17,12 @@ handler.get((req, res) => {
 
   gfs.files.findOne(
     { _id: new mongoose.Types.ObjectId(req.query.id) },
-    (err: any, file: any) => {
-      console.log(file);
-      isFileExist(file, res);
+    (err: any, video: any) => {
+      isFileExist(video, res);
+
+      //if (file.contentType === "video/mpeg" || "video/mp4") {
+      res.status(200).json(video);
+      //}
     }
   );
 });

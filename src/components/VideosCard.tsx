@@ -6,6 +6,7 @@ import displayFlex from "../fp/DisplayFlex";
 import remsize from "../fp/Remsize";
 import { dehydrate, QueryClient, useQuery } from "react-query";
 import fetchData from "./fetchData";
+import Image from "next/image";
 
 const theme = {
   $white: "white",
@@ -37,10 +38,10 @@ export const VideosCard: FC = () => {
   if (isFetching) return <div>isFetching...</div>;
 
   return data?.map((buffer: any, index: any) => (
-    <Link href="/" key={index}>
+    <Link href="/" passHref key={index}>
       <Div id="itemCard">
         <ArtistImage>
-          <img src="/casmir.png" alt="artist" />
+          <Image src="/casmir.png" alt="artist" />
         </ArtistImage>
         <div id="videos">
           <h6>

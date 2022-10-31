@@ -23,11 +23,11 @@ const H6 = styled.h6`
 `;
 const AboutDeveloper = () => (
   <H6 id="aboutDeveloper">
-    I'm Casmir Chijioke, a Nigerian based Web Developer/Software Engineer from
-    Awka precisely.I'm a fullstack web developer, The founder of NaijaForez.com.
-    We create all kinds of websites, applications, templates, web design and
-    Graphics design etc. We have a bootcamp where we teach students web
-    development/coding.
+    I am Casmir Chijioke, a Nigerian based Web Developer/Software Engineer from
+    Awka precisely.I am a fullstack web developer, The founder of
+    NaijaForez.com. We create all kinds of websites, applications, templates,
+    web design and Graphics design etc. We have a bootcamp where we teach
+    students web development/coding.
   </H6>
 );
 export default AboutDeveloper;

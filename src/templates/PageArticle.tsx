@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import styled from "styled-components";
 import boxProperty from "../fp/BoxProperty";
 import displayFlex from "../fp/DisplayFlex";
@@ -38,9 +38,9 @@ const Div = styled.article`
     background: ${theme.$light};
     ${displayFlex(`space-between`, "center", `row nowrap`)};
 
-    div#articleCard {
+    div#pageArticle__article--articleCard {
       ${boxProperty(`60%`, `100%`, "auto")};
-      //min-height:${remsize(2000)};
+      height:min-height:${remsize(2000)};
       ${displayFlex(`space-around`, "center", `column nowrap`)};
     };
 
@@ -67,17 +67,25 @@ const Div = styled.article`
     width:80%;
     `)};
 `;
-const PageArticle: FC = (props: any) => (
-  <Container id="pageArticle">
-    <PageAds />
-    <Div id="article">
-      <div id="articleCard">{props.children}</div>
-      <Hint />
-    </Div>
-    <div id="goBackButton__container">
-      <GoBackButton />
-    </div>
-  </Container>
-);
+const PageArticle: FC = (props: any) => {
+  useEffect(() => {
+    const element: any = document.querySelector(
+      "#pageArticle__article--article"
+    );
+    //element?.style.background = "red";
+  }, []);
+  return (
+    <Container id="pageArticle">
+      <PageAds />
+      <Div id="pageArticle__article">
+        <div id="pageArticle__article--articleCard">{props.children}</div>
+        <Hint />
+      </Div>
+      <div id="goBackButton__container">
+        <GoBackButton />
+      </div>
+    </Container>
+  );
+};
 
 export default PageArticle;

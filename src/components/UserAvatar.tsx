@@ -1,7 +1,8 @@
 import React, { FC } from "react";
 import styled from "styled-components";
-import remsize from "../fp/remsize";
-import boxProperty from "../fp/boxProperty";
+import remsize from "../fp/Remsize";
+import boxProperty from "../fp/BoxProperty";
+import Image from "next/image";
 
 const Container = styled.div`
   ${boxProperty(remsize(150), remsize(150), "auto", remsize(3), `#333333`)};
@@ -17,13 +18,13 @@ const UserAvatar: FC = (props: any) => {
   if (props.mandate)
     return (
       <Container id="userAvatar">
-        <img src="mandate.jpg" alt="mandate" />
+        <Image src="mandate.jpg" alt="mandate" />
       </Container>
     );
   else
     return (
       <Container id="userAvatar">
-        <img src="casmir.png" alt="developer" />
+        <Image src="casmir.png" alt="developer" />
       </Container>
     );
 };

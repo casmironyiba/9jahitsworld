@@ -17,9 +17,12 @@ handler.get((req, res) => {
 
   gfs.files.findOne(
     { _id: new mongoose.Types.ObjectId(req.query.id) },
-    (err: any, file: any) => {
-      console.log(file);
-      isFileExist(file, res);
+    (err: any, image: any) => {
+      isFileExist(image, res);
+
+      if (image.contentType === "image/mpeg") {
+        res.status(200).json(image);
+      }
     }
   );
 });

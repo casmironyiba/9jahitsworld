@@ -3,6 +3,7 @@ import { mediaQueries } from "../fp/MediaQueries";
 import displayFlex from "../fp/DisplayFlex";
 import boxProperty from "../fp/BoxProperty";
 import remsize from "../fp/Remsize";
+import theme from "./Themes";
 
 const Ul = styled.ul`
   ${mediaQueries(`mobileS`)(`
@@ -14,6 +15,8 @@ const Ul = styled.ul`
 const H4 = styled.h4`
   ${mediaQueries(`mobileS`)(`
     font-size: .8rem;
+    border-bottom:1px solid ${theme.$black};
+    margin-bottom: 10px;
     `)};
 
   ${mediaQueries("mobileM")(`
@@ -27,7 +30,7 @@ const H4 = styled.h4`
 
 const Li = styled.li`
   ${mediaQueries(`mobileS`)(`
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     font-size: .8rem;
   `)}
 `;
