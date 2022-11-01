@@ -24,7 +24,17 @@ interface Obj {
 }
 
 function Input(
-  { placeholder, onKeyDown, type, name, value, onChange, required, id }: Obj,
+  {
+    placeholder,
+    onKeyDown,
+    type,
+    name,
+    value,
+    onChange,
+    required,
+    id,
+    className,
+  }: Obj,
   ref: any
 ) {
   return (
@@ -38,6 +48,7 @@ function Input(
       onChange={onChange}
       required={required}
       id={id}
+      className={className}
     />
   );
 }

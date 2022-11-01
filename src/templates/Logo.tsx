@@ -7,29 +7,28 @@ import remsize from "../fp/Remsize";
 
 const Container = styled.div`
   ${mediaQueries(`mobileS`)(`
-    width:60%;
+    width:90%;
+    ${boxProperty(remsize(270), remsize(70))};
     position:relative;
-
-    img {
-      width:100%;
-      height:100%;
-    }
+    margin:auto;
     `)};
 
   ${mediaQueries(`mobileM`)(`
-    width:50%;
+    width:350px;
+    height:80px;
     `)};
 
   ${mediaQueries(`mobileL`)(`
-    width:40%;
+    //width:40%;
     `)};
 
   ${mediaQueries(`tablet`)(`
-    width:28%;
+    width:${remsize(350)};
     margin-top:${remsize(10)};
     `)};
+
   ${mediaQueries(`laptop`)(`
-    width: 19%;
+    //width: 19%;
     height:90%;
     bottom: 20px;
     margin-top:${remsize(40)};
@@ -37,22 +36,34 @@ const Container = styled.div`
 `;
 
 const H1 = styled.h1`
-  color: white;
-  ${displayFlex("flex-start", "center", "column nowrap")};
-  ${boxProperty(remsize(275), remsize(100))}
-  font-weight:800;
-  font-size: 50px;
-  div {
-    margin-left: auto;
-    margin-top: ${remsize(-15)};
-  }
+  ${mediaQueries("mobileS")(`
+    ${boxProperty(`100%`, `100%`)};
+    color: white;
+    ${displayFlex("center", "center", "column nowrap")};
+    font-weight:400;
+    font-size: 43px;
+    span {
+      position:relative;
+      left:85px;
+      margin-top: ${remsize(-24)};
+    }
+
+    `)};
+  ${mediaQueries("mobileL")(`
+                            
+    font-weight:800;
+    font-size: 50px;
+    `)};
+
+  ${mediaQueries("tablet")(`
+    `)};
 `;
 
 //<img src="/9jahitsLogo.svg" alt="LOGOs" id="logo" />
 const Logo: FC = () => (
   <Container>
     <H1>
-      NaijaHitsWorld <div>.com</div>
+      NaijaHitsWorld <span>.com</span>
     </H1>
   </Container>
 );

@@ -4,6 +4,7 @@ import boxProperty from "../fp/BoxProperty";
 import displayFlex from "../fp/DisplayFlex";
 import remsize from "../fp/Remsize";
 import Hint from "../components/Hint";
+import RecentUpdate from "../components/RecentUpdate";
 import { mediaQueries } from "../fp/MediaQueries";
 import PageAds from "../components/PageAds";
 import GoBackButton from "../components/GoBackButton";
@@ -22,9 +23,6 @@ const Container = styled.div`
     padding:10px;
     ${displayFlex(`space-around`, `center`, `column nowrap`)};
     opacity:1;
-    button#goBackButton {
-      margin-top:${remsize(25)};
-    };
     `)};
 
   ${mediaQueries(`laptop`)(`
@@ -36,7 +34,7 @@ const Div = styled.article`
   ${mediaQueries(`mobileS`)(`
     ${boxProperty(`95%`, "90%", `auto`, remsize(10))};
     background: ${theme.$light};
-    ${displayFlex(`space-between`, "center", `row nowrap`)};
+    ${displayFlex(`flex-start`, "flex-start", `row nowrap`)};
 
     div#pageArticle__article--articleCard {
       ${boxProperty(`60%`, `100%`, "auto")};
@@ -45,7 +43,7 @@ const Div = styled.article`
     };
 
 
-    div#hintContainer {
+    div#recentUpdate {
       display:none;
     }
   `)}
@@ -58,8 +56,15 @@ const Div = styled.article`
     width:95%;
     `)};
   ${mediaQueries("tablet")(`
-    div#hintContainer {
+    div#recentUpdate {
       display:flex;
+    };
+
+    div#pageArticle__article--articleCard {
+     width: 50%;
+     background:red;
+     padding:${remsize(10)};
+        font-size:14px;
     }
       `)};
 
@@ -79,7 +84,7 @@ const PageArticle: FC = (props: any) => {
       <PageAds />
       <Div id="pageArticle__article">
         <div id="pageArticle__article--articleCard">{props.children}</div>
-        <Hint />
+        <RecentUpdate />
       </Div>
       <div id="goBackButton__container">
         <GoBackButton />

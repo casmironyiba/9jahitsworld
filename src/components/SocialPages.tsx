@@ -11,16 +11,26 @@ import displayFlex from "../fp/DisplayFlex";
 import remsize from "../fp/Remsize";
 import Link from "next/link";
 import theme from "./Themes";
+import { mediaQueries } from "../fp/MediaQueries";
 
 const Container = styled.div`
-  ${boxProperty(remsize(300), remsize(30), ``, remsize(5))};
-  ${displayFlex(`space-around`, "center", `row nowrap`)};
-  color: ${theme.$white};
-  a {
-    ${boxProperty(remsize(100), remsize(30))};
+  ${mediaQueries(`mobileS`)(`
+    ${boxProperty(remsize(200), remsize(30), `auto`, remsize(5))};
+    color: ${theme.$white};
+    a {
+      ${boxProperty(remsize(100), remsize(30))};
+      ${displayFlex(`space-between`, "center", `row nowrap`)};
+      text-decoration: none;
+    }
+    display: none;
+
+  `)};
+  ${mediaQueries(`tablet`)(`
     ${displayFlex(`space-around`, "center", `row nowrap`)};
-    text-decoration: none;
-  }
+    width:20%;
+    font-size:13px;
+    background:blue;
+   `)};
 `;
 
 const Div = styled.div`
@@ -40,12 +50,6 @@ export default function SocialPages() {
       <Div>
         <Link href="#" passHref>
           <YouTube fontSize="small" />
-        </Link>
-      </Div>
-
-      <Div>
-        <Link href="#" passHref>
-          <Instagram fontSize="small" />
         </Link>
       </Div>
 

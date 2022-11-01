@@ -30,8 +30,8 @@ const Container = styled.div`
     }
                             `)};
   ${mediaQueries(`laptop`)(`
-    ${boxProperty(`30%`, `100%`)}
-    margin-left:auto;
+    ${boxProperty(`50%`, `100%`)}
+    margin:auto;
     display:block;
     background:none;
 

@@ -17,23 +17,18 @@ const MusicCard = styled.div`
       letter-spacing: 2px;
     }
     div#itemCard {
-      ${boxProperty(
-        remsize(285),
-        remsize(130),
-        "auto",
-        remsize(5),
-        theme.$light
-      )};
+      ${boxProperty("250px", remsize(130), "auto", remsize(5), theme.$light)};
       ${displayFlex(`space-between`, `center`, `row nowrap`)};
       box-shadow: ${remsize(2)} ${remsize(2)} ${remsize(2)};
       border: 1px solid ${theme.$white};
+      //font-size:6px;
     }
 
     div#artistImage {
-      ${boxProperty(`35%`, `100%`)};
+      ${boxProperty(`25%`, `100%`)};
 
       img {
-        ${boxProperty(`100px`, `100px`)};
+        ${boxProperty(`80px`, `100px`)};
       }
     }
 
@@ -63,13 +58,17 @@ const MusicCard = styled.div`
 
   ${mediaQueries(`tablet`)(`
       div#itemCard {
-        width:${remsize(450)};
+        width:100%;
+        padding:10px;
+      }
+      div#artistImage {
+       
       }
 
       `)};
   ${mediaQueries(`laptop`)(`
     &>div#itemCard {
-      width: ${remsize(500)};
+      width: 100%;
     }
   `)};
 

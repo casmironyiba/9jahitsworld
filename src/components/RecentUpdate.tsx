@@ -13,7 +13,7 @@ const Container = styled.div`
     ${boxProperty(remsize(250), remsize(600))};
     padding:${remsize(10)};
     background: ${theme.$purple};
-    box-shadow:1px 1px 3px;
+    //box-shadow:1px 1px 3px;
     `)};
 
   ${mediaQueries("mobileM")(`
@@ -25,7 +25,8 @@ const Container = styled.div`
   `)};
 
   ${mediaQueries(`tablet`)(`
-    width:60vw;
+    width:40%;
+    height:${remsize(1000)};
    `)};
 
   ${mediaQueries(`laptop`)(`
@@ -40,7 +41,7 @@ const Div = styled.div`
 `;
 
 const H4 = styled.h4`
-  text-align: center;
+  text-align: left;
   letter-spacing: 2px;
   font-size: 20px;
   margin-bottom: 20px;
@@ -50,10 +51,13 @@ const H4 = styled.h4`
 const Ul = styled.ul`
   width: 100%;
   height: 90%;
-  ${displayFlex("space-around", "center", "column wrap")}
+  ${displayFlex("space-around", "flex-start", "column wrap")}
 `;
 
 const Li = styled.li`
+  list-style: none;
+  height: ${remsize(35)};
+  border-bottom: 1px solid ${theme.$palevioletred};
   a {
     text-decoration: none;
   }

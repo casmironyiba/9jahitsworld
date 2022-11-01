@@ -6,13 +6,11 @@ import remsize from "../fp/Remsize";
 import MusicLink from "./MusicLink";
 import HomeLink from "./HomeLink";
 import VideosLink from "./VideosLink";
-import ImagesLink from "./ImagesLink";
 import AdminLink from "./AdminLink";
-
-const theme = {
-  $white: "white",
-  $green: "green",
-};
+import GospelMusicLink from "./GospelMusicLink";
+import MixTapeLink from "./MixTapeLink";
+import ArticlesLink from "./ArticlesLink";
+import theme from "./Themes";
 
 const Container = styled.div`
   ${mediaQueries(`mobileS`)(`
@@ -48,6 +46,9 @@ const Div = styled.div`
 
   ${mediaQueries(`laptop`)(`
     flex-flow: row nowrap;
+    a {
+     font-weight:800;
+    }
       `)};
 `;
 const Links = () => (
@@ -59,9 +60,14 @@ const Links = () => (
 
       <VideosLink />
 
-      <ImagesLink />
+      <MixTapeLink />
 
-      <AdminLink />
+      <GospelMusicLink />
+
+      <ArticlesLink />
+      <div>
+        <AdminLink />
+      </div>
     </Div>
   </Container>
 );
