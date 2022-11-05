@@ -71,6 +71,12 @@ const H3 = styled.h5`
     a {
       color: ${theme.$white};
       text-decoration: none;
+      transition: 0.4s linear;
+
+      &:hover {
+        color: ${theme.$red};
+      }
+  }
     }
 
     `)};

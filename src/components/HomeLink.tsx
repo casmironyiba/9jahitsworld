@@ -4,11 +4,7 @@ import styled from "styled-components";
 import boxProperty from "../fp/BoxProperty";
 import displayFlex from "../fp/DisplayFlex";
 import remsize from "../fp/Remsize";
-
-const theme = {
-  $green: "green",
-  $white: "white",
-};
+import theme from "./Themes";
 
 const Container = styled.div`
   a {
@@ -19,14 +15,16 @@ const Container = styled.div`
     }
   }
   a:hover {
-    color: ${theme.$green};
+    #homeIcon {
+      color: ${theme.$red};
+    }
   }
 `;
 
 const HomeLink = () => (
   <Container>
     <a href="/">
-      <HomeIcon sx={{ color: theme.$white }} />
+      <HomeIcon sx={{ color: theme.$white }} id="homeIcon" />
     </a>
   </Container>
 );

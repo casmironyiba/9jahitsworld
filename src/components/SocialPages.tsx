@@ -48,6 +48,15 @@ const Div = styled.div`
   a:visited {
     //color: brown;
   }
+  & a {
+    position: relative;
+    font-weight: 800;
+    transition: 0.4s linear;
+
+    &:hover {
+      color: ${theme.$red};
+    }
+  }
 `;
 
 export default function SocialPages() {

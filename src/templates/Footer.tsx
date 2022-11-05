@@ -4,13 +4,7 @@ import boxProperty from "../fp/BoxProperty";
 import displayFlex from "../fp/DisplayFlex";
 import remsize from "../fp/Remsize";
 import textProperty from "../fp/TextProperty";
-
-const theme = {
-  $yellow: "yellow",
-  $blue: "blue",
-  $black: "black",
-  $white: "white",
-};
+import theme from "../components/Themes";
 
 const Container = styled.div`
   grid-area: f;
@@ -43,6 +37,11 @@ const LI = styled.li`
   a {
     text-decoration: none;
     color: ${theme.$white};
+    transition: 0.4s linear;
+
+    &:hover {
+      color: ${theme.$red};
+    }
   }
 `;
 

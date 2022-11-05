@@ -48,9 +48,14 @@ const Div = styled.div`
 
   ${mediaQueries(`laptop`)(`
     flex-flow: row nowrap;
-    & a {
+    & a,#homeIcon {
       position:relative;
      font-weight:800;
+     transition: .4s linear;
+
+     &:hover {
+      color:${theme.$red};
+     }
     }
       `)};
 `;
