@@ -1,13 +1,13 @@
 import mongoose from "mongoose";
 import dbConnect, { connection } from "../../../utils/dbConnect";
-import $9jaMusicMiddleware from "../../../middleware/9jaMusicMiddleware";
+import mixtapeMiddleware from "../../../middleware/mixtapeMiddleware";
 import handler from "../../../utils/handler";
 
 dbConnect();
 
 let gfs: any;
 gfs = new mongoose.mongo.GridFSBucket(connection.db, {
-  bucketName: "music",
+  bucketName: "mixtapes",
 });
 //gfs = Grid(connection.db, mongoose.mongo);
 //gfs.collection("music");
@@ -19,7 +19,7 @@ handler
       else return res.status(200).json(files);
     });
   })
-  .post($9jaMusicMiddleware, (req: any, res: any) => {
+  .post(mixtapeMiddleware, (req: any, res: any) => {
     res.send(req.file);
   });
 

@@ -8,7 +8,7 @@ import { getFiles } from "../components/filesApi";
 
 const Div = styled(MusicCard)``;
 
-const url = `api/videos/videosList`;
+const url = `api/videos/videolists`;
 
 const fetchVideos = () => getFiles(url);
 export default function Videos(props: any) {

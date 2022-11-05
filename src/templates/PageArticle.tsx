@@ -62,9 +62,8 @@ const Div = styled.article`
 
     div#pageArticle__article--articleCard {
      width: 50%;
-     background:red;
      padding:${remsize(10)};
-        font-size:14px;
+    font-size:14px;
     }
       `)};
 
@@ -86,9 +85,7 @@ const PageArticle: FC = (props: any) => {
         <div id="pageArticle__article--articleCard">{props.children}</div>
         <RecentUpdate />
       </Div>
-      <div id="goBackButton__container">
-        <GoBackButton />
-      </div>
+      <div id="goBackButton__container"></div>
     </Container>
   );
 };

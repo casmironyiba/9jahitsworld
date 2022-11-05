@@ -17,17 +17,17 @@ const Container = styled.div`
     &:last-child {
       width: 100%;
     }
-    &:hover {
-      background: ${theme.$green};
-    }
+  }
+  a:hover {
+    color: ${theme.$green};
   }
 `;
 
 const HomeLink = () => (
   <Container>
-    <Link href="/" passHref>
+    <a href="/">
       <HomeIcon sx={{ color: theme.$white }} />
-    </Link>
+    </a>
   </Container>
 );
 export default HomeLink;

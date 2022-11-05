@@ -15,9 +15,6 @@ const Container = styled.div`
     &:last-child {
       width: 100%;
     }
-    &:hover {
-      background: ${theme.$green};
-    }
   }
 `;
 

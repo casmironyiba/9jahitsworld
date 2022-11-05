@@ -12,7 +12,7 @@ const Container = styled.div``;
 const Div = styled(MusicCard)``;
 
 const fetchMusic = () => getFiles("api/music/musicList");
-export default function Music(props: any) {
+export default function $9jaMusic(props: any) {
   const { data, isLoading, isFetching } = useQuery<any>("music", fetchMusic);
   if (!data) return <div>No data</div>;
   if (isLoading) return <div>isLoading...</div>;

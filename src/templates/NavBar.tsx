@@ -17,7 +17,6 @@ const Container = styled.div`
       }
       100% {
         right:0;
-
       }
     }
     ${boxProperty(remsize(100), remsize(200), 0, 0, theme.$dark)};
@@ -33,7 +32,7 @@ const Container = styled.div`
     ${boxProperty(`50%`, `100%`)}
     margin:auto;
     display:block;
-    background:none;
+    //background:none;
 
                            
 `)};

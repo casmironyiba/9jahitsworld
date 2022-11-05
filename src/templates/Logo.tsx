@@ -11,6 +11,7 @@ const Container = styled.div`
     ${boxProperty(remsize(270), remsize(70))};
     position:relative;
     margin:auto;
+    
     `)};
 
   ${mediaQueries(`mobileM`)(`
@@ -23,15 +24,11 @@ const Container = styled.div`
     `)};
 
   ${mediaQueries(`tablet`)(`
-    width:${remsize(350)};
-    margin-top:${remsize(10)};
+    width:50%;
     `)};
 
   ${mediaQueries(`laptop`)(`
-    //width: 19%;
-    height:90%;
-    bottom: 20px;
-    margin-top:${remsize(40)};
+    width: 380px;
     `)};
 `;
 
@@ -44,8 +41,9 @@ const H1 = styled.h1`
     font-size: 43px;
     span {
       position:relative;
-      left:85px;
+      left:120px;
       margin-top: ${remsize(-24)};
+      font-size:35px;
     }
 
     `)};
@@ -63,7 +61,7 @@ const H1 = styled.h1`
 const Logo: FC = () => (
   <Container>
     <H1>
-      NaijaHitsWorld <span>.com</span>
+      NaijaHitsWorld <span>.com.ng</span>
     </H1>
   </Container>
 );
