@@ -5,6 +5,7 @@ import displayFlex from "../fp/DisplayFlex";
 import remsize from "../fp/Remsize";
 import textProperty from "../fp/TextProperty";
 import theme from "../components/Themes";
+import { mediaQueries } from "../fp/MediaQueries";
 
 const Container = styled.div`
   grid-area: f;
@@ -24,25 +25,28 @@ const UL = styled.div`
 `;
 
 const LI = styled.li`
-  margin: ${remsize(5)};
-  font-family: geogia;
-  ${textProperty(
-    theme.$white,
-    ".7rem",
-    100,
-    "center",
-    "capitalize",
-    remsize(4)
-  )};
-  a {
-    text-decoration: none;
-    color: ${theme.$white};
-    transition: 0.4s linear;
+  ${mediaQueries("mobileS")(`
+    margin: ${remsize(5)};
+    font-family: geogia;
+    ${textProperty(
+      theme.$white,
+      ".7rem",
+      100,
+      "center",
+      "capitalize",
+      remsize(4)
+    )};
+    a {
+      text-decoration: none;
+      color: ${theme.$white};
+      transition: 0.4s linear;
 
-    &:hover {
-      color: ${theme.$red};
+      &:hover {
+        color: ${theme.$red};
+      }
     }
-  }
+
+   `)};
 `;
 
 const Footer = () => {

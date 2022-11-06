@@ -5,6 +5,10 @@ import { dehydrate, QueryClient, useQuery } from "react-query";
 import MusicCard from "../components/MusicCard";
 import Link from "next/link";
 import { getFiles } from "../components/filesApi";
+import Header from "../templates/Header";
+import Footer from "../templates/Footer";
+
+const Container = styled.div``;
 
 const Div = styled(MusicCard)``;
 
@@ -20,22 +24,26 @@ export default function Videos(props: any) {
   if (isLoading) return <div>isLoading...</div>;
   if (isFetching) return <div>isFetching...</div>;
   return (
-    <PageArticle>
-      {data.map((buffer: any, index: any) => (
-        <Div key={index}>
-          <div id="itemCard">
-            <div id="artistImage">
-              <img src="casmir.png" />
+    <Container>
+      <Header />
+      <PageArticle>
+        {data.map((buffer: any, index: any) => (
+          <Div key={index}>
+            <div id="itemCard">
+              <div id="artistImage">
+                <img src="casmir.png" />
+              </div>
+              <div id="music">
+                <h6>
+                  <Link href={`videos/${buffer._id}`}>{buffer?.filename}</Link>
+                </h6>
+              </div>
             </div>
-            <div id="music">
-              <h6>
-                <Link href={`videos/${buffer._id}`}>{buffer?.filename}</Link>
-              </h6>
-            </div>
-          </div>
-        </Div>
-      ))}
-    </PageArticle>
+          </Div>
+        ))}
+      </PageArticle>
+      <Footer />
+    </Container>
   );
 }
 

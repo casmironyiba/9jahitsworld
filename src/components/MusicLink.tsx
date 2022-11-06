@@ -18,7 +18,7 @@ const Container = styled.div`
 const MusicLink = () => (
   <Container>
     {" "}
-    <Link href="/music">Music</Link>{" "}
+    <Link href="/9jamusic">9jamusic</Link>{" "}
   </Container>
 );
 export default MusicLink;

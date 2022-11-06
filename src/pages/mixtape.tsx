@@ -12,9 +12,9 @@ import Image from "next/image";
 const Container = styled.div``;
 const Div = styled(MusicCard)``;
 
-const fetchMusic = () => getFiles("api/mixtape/mixtapeList");
+const fetchMusic = () => getFiles("api/mixtape/mixtapelists");
 export default function MixTape(props: any) {
-  const { data, isLoading, isFetching } = useQuery<any>("music", fetchMusic);
+  const { data, isLoading, isFetching } = useQuery<any>("mixtape", fetchMusic);
   if (!data) return <div>No data</div>;
   if (isLoading) return <div>isLoading...</div>;
   if (isFetching) return <div>isFetching...</div>;
@@ -26,12 +26,12 @@ export default function MixTape(props: any) {
           <Div key={index}>
             <div id="itemCard">
               <div id="artistImage">
-                <Image src="casmir.png" alt="" />
+                <img src="casmir.png" alt="" />
               </div>
               <div id="music">
                 <h6>
                   <Link href={`mixtape/${mixtape._id}`}>
-                    {mixtape.filename}
+                    {mixtape?.filename}
                   </Link>
                 </h6>
               </div>
@@ -46,7 +46,7 @@ export default function MixTape(props: any) {
 
 export async function getStaticProps() {
   const queryClient = new QueryClient();
-  await queryClient.prefetchQuery("music", fetchMusic);
+  await queryClient.prefetchQuery("mixtape", fetchMusic);
   return {
     props: {
       dehydratedState: dehydrate(queryClient),

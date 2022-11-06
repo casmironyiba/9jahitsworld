@@ -11,12 +11,13 @@ import Footer from "../templates/Footer";
 const Container = styled.div``;
 const Div = styled(MusicCard)``;
 
-const fetchMusic = () => getFiles("api/gospel/musicList");
+const fetchGospel = () => getFiles("api/gospel/gospellists");
 export default function Gospel(props: any) {
-  const { data, isLoading, isFetching } = useQuery<any>("music", fetchMusic);
+  const { data, isLoading, isFetching } = useQuery<any>("gospel", fetchGospel);
   if (!data) return <div>No data</div>;
   if (isLoading) return <div>isLoading...</div>;
   if (isFetching) return <div>isFetching...</div>;
+  console.log(data);
   return (
     <Container>
       <Header />
@@ -29,7 +30,7 @@ export default function Gospel(props: any) {
               </div>
               <div id="music">
                 <h6>
-                  <Link href={`music/${music._id}`}>{music.filename}</Link>
+                  <Link href={`music/${music._id}`}>{music?.filename}</Link>
                 </h6>
               </div>
             </div>
@@ -43,7 +44,7 @@ export default function Gospel(props: any) {
 
 export async function getStaticProps() {
   const queryClient = new QueryClient();
-  await queryClient.prefetchQuery("music", fetchMusic);
+  await queryClient.prefetchQuery("gospel", fetchGospel);
   return {
     props: {
       dehydratedState: dehydrate(queryClient),

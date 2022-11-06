@@ -43,20 +43,22 @@ const Div = styled.div`
       font-size:1.1rem;
       &:last-child {width:100%};
       &:hover {color: ${theme.$red};
+      };
     };
+    & a,#homeIcon {
+      position:relative;
+      font-weight:800;
+      transition: .4s linear;
+
+      &:hover {
+       color:${theme.$red};
+      }
+    }
+
   `)};
 
   ${mediaQueries(`laptop`)(`
     flex-flow: row nowrap;
-    & a,#homeIcon {
-      position:relative;
-     font-weight:800;
-     transition: .4s linear;
-
-     &:hover {
-      color:${theme.$red};
-     }
-    }
       `)};
 `;
 const Links = () => (
