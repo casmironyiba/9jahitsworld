@@ -68,13 +68,14 @@ const MusicCard = styled.div`
       `)};
   ${mediaQueries(`laptop`)(`
     &>div#itemCard {
-      width: 100%;
+      width: 90%;
+        //background:red;
     }
   `)};
 
   ${mediaQueries(`laptopL`)(`
     &>div#itemCard {
-      width: ${remsize(600)};
+      width: ${remsize(400)};
     }
   `)};
 `;

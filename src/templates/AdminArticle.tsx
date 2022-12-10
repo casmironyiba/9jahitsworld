@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React from "react";
 import Axios from "axios";
 import styled from "styled-components";
 import Link from "next/link";
@@ -53,13 +53,75 @@ const H4 = styled.h4`
   border-radius: ${remsize(30)} 0px 0px;
   margin-left: auto;
 `;
-const AdminArticle = () => {
-  console.log(localStorage.getItem("authToken"));
-  const [error, setError] = useState("");
-  const [privateData, setPrivateData] = useState("");
-  privateData;
+//export default class AdminArticle extends React.Component {
+//constructor() {
+//super();
+//this.state = {
+//privateData: "",
+//error: "",
+//};
+
+//}
+//logoutHandler() {
+//localStorage.removeItem("authToken");
+//this.router.query.push("/login");
+//}
+
+//componentDidMount() {
+//if (
+//!localStorage.getItem("authToken") ||
+//localStorage.getItem("authToken") === undefined
+//) {
+//history.push("/login");
+//}
+
+//const fetchPrivateData = async () => {
+//const config = {
+//headers: {
+//"Content-Type": "application/json",
+//Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+//},
+//};
+
+//try {
+//const { data: response } = await Axios.get("/api/admin", config);
+//this.setState(response.data);
+//} catch (error) {
+//localStorage.removeItem("authToken");
+//this.setState(`You are not authorized please login`);
+//history.push("/login");
+//}
+//};
+
+//fetchPrivateData();
+//}
+
+//render() {
+//return this.state.error ? (
+//<span>{this.state.error}</span>
+//) : (
+//<Container id="adminArticle">
+//<Div>
+//<H4>Admin Rights</H4>
+//<div id="adminRights">
+//<Link href="/uploadMusic">Upload Music</Link>
+//<Link href="/uploadVideos">Upload Videos</Link>
+//<Link href="/uploadImages">Upload Images</Link>
+//<LogoutButton onClick={this.logoutHandler}>Logout</LogoutButton>
+//</div>
+//</Div>
+//</Container>
+//);
+//}
+//}
+//);
+
+export default function AdminArticle() {
+  //console.log(localStorage.getItem("authToken"));
+  const [error, setError] = React.useState("");
+  const [privateData, setPrivateData] = React.useState("");
   const history = useRouter;
-  useEffect(() => {
+  React.useEffect(() => {
     if (
       !localStorage.getItem("authToken") ||
       localStorage.getItem("authToken") === undefined
@@ -108,5 +170,4 @@ const AdminArticle = () => {
       </Div>
     </Container>
   );
-};
-export default AdminArticle;
+}
